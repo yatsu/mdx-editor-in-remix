@@ -1,8 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
+
 import { ClientOnly } from "remix-utils";
 
-import "@mdxeditor/editor/style.css";
 import type { MDXEditorMethods } from "@mdxeditor/editor";
+
+import "@mdxeditor/editor/style.css";
 
 const LazyMDXEditor = React.lazy(() =>
   import("@mdxeditor/editor").then((mod) => ({ default: mod.MDXEditor }))
@@ -15,8 +17,7 @@ export default function Editor() {
   const [linkPlugin, setLinkPlugin] = useState<any>(null);
   const [codeBlockPlugin, setCodeBlockPlugin] = useState<any>(null);
   const [thematicBreakPlugin, setThematicBreakPlugin] = useState<any>(null);
-  const [markdownShortcutPlugin, setMarkdownShortcutPlugin] =
-    useState<any>(null);
+  const [markdownShortcutPlugin, setMarkdownShortcutPlugin] = useState<any>(null);
 
   useEffect(() => {
     (async () => {
@@ -86,9 +87,7 @@ export default function Editor() {
                 markdownShortcutPlugin, // e.g. `# heading` => <h1><span>heading</span></h1>
               ].filter((p) => p)}
             />
-            <button onClick={() => console.log(ref.current?.getMarkdown())}>
-              Get markdown
-            </button>
+            <button onClick={() => console.log(ref.current?.getMarkdown())}>Get markdown</button>
           </>
         )}
       </ClientOnly>
